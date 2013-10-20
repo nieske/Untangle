@@ -8,10 +8,13 @@ var puzzles = [
 ];
            
 
-var text = puzzles[Math.floor(puzzles.length * Math.random())];
+var text = getRandomElement(puzzles);
 var rightAnswer = text.toLowerCase();
 var puzzle = text.toLowerCase().split(' ').sort();
 
+function getRandomElement(list) {
+    return list[Math.floor(list.length * Math.random())];
+}
 
 function checkAnswer(userAnswer) {
     return userAnswer.toLowerCase() === rightAnswer;

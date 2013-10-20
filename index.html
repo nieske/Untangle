@@ -8,10 +8,26 @@
     
         <h1>Welcome to Untangle!</h1>
 
+        <div id="puzzle"></div>
 
-    
-    
+        <input id="answer" type="text" placeholder="Your answer here">
+        <button id="button">Check!</button>
+        <div id="outcome"></div>
     
         <script src="untangle.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script>
+            $(document).ready(function() {
+                puzzle.forEach(function(word) {
+                    $('#puzzle').append('<div>' + word + '</div>');
+                });
+    
+                $('#button').click(function() {
+                    var userAnswer = $('#answer').val();
+                    var correct = checkAnswer(userAnswer);
+                    $('#outcome').text(correct ? 'hoera' : 'jammer');
+                });            
+            });
+        </script>
     </body>
 </html>
